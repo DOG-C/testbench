@@ -126,7 +126,11 @@ const Case = () => {
                 sx={{ gridColumn: "span 4" }}
               />
             </Box>
-            <Box display="flex" justifyContent="end" mt="20px">
+            <Box display="flex" justifyContent="left" mt="20px" sx={{ flexDirection: 'row' }}>
+              <Button color="secondary" variant="contained">
+                Cancel
+              </Button>
+              <br />
               <Button type="submit" color="secondary" variant="contained">
                 Create New Test Case
               </Button>
