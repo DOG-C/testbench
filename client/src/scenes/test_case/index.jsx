@@ -1,13 +1,32 @@
 import { Box, Button, TextField } from "@mui/material";
 import { Formik } from "formik";
-import * as yup from "yup";
+import { useNavigate } from "react-router-dom";
+import * as Yup from "yup";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import axios from "axios";
+
 
 const Case = () => {
+  const navigate = useNavigate();
   const isNonMobile = useMediaQuery("(min-width:600px)");
+  const initialValues = {
+    name: "",
+    caseid: "",
+    log: "",
+    cmd: "",
+    detection: "",
+    behavior: "",
+    description: "",
+  };
+
+  const validationSchema = Yup.object().shape({
+    name: Yup.string().required("You must input a name!"),
+  });
 
   const handleFormSubmit = (values) => {
-    console.log(values);
+    axios.post("http://localhost:3001/caselist", values).then((response) => {
+      navigate("/test_case");
+    });
   };
 
   return (
@@ -16,7 +35,7 @@ const Case = () => {
       <Formik
         onSubmit={handleFormSubmit}
         initialValues={initialValues}
-        validationSchema={checkoutSchema}
+        validationSchema={validationSchema}
       >
         {({
           values,
@@ -42,10 +61,10 @@ const Case = () => {
                 label="Test Case Name"
                 onBlur={handleBlur}
                 onChange={handleChange}
-                value={values.firstName}
+                value={values.name}
                 name="name"
-                error={!!touched.firstName && !!errors.firstName}
-                helperText={touched.firstName && errors.firstName}
+                error={!!touched.name && !!errors.name}
+                helperText={touched.name && errors.name}
                 sx={{ gridColumn: "span 2" }}
               />
               <TextField
@@ -55,10 +74,10 @@ const Case = () => {
                 label="Test Case ID"
                 onBlur={handleBlur}
                 onChange={handleChange}
-                value={values.lastName}
-                name="id"
-                error={!!touched.lastName && !!errors.lastName}
-                helperText={touched.lastName && errors.lastName}
+                value={values.caseid}
+                name="caseid"
+                error={!!touched.caseid && !!errors.caseid}
+                helperText={touched.caseid && errors.caseid}
                 sx={{ gridColumn: "span 2" }}
               />
               <TextField
@@ -68,10 +87,10 @@ const Case = () => {
                 label="Test Case Log"
                 onBlur={handleBlur}
                 onChange={handleChange}
-                value={values.email}
+                value={values.log}
                 name="log"
-                error={!!touched.email && !!errors.email}
-                helperText={touched.email && errors.email}
+                error={!!touched.log && !!errors.log}
+                helperText={touched.log && errors.log}
                 sx={{ gridColumn: "span 4" }}
               />
               <TextField
@@ -81,10 +100,10 @@ const Case = () => {
                 label="Test Case Command"
                 onBlur={handleBlur}
                 onChange={handleChange}
-                value={values.contact}
-                name="command"
-                error={!!touched.contact && !!errors.contact}
-                helperText={touched.contact && errors.contact}
+                value={values.cmd}
+                name="cmd"
+                error={!!touched.cmd && !!errors.cmd}
+                helperText={touched.cmd && errors.cmd}
                 sx={{ gridColumn: "span 4" }}
               />
               <TextField
@@ -94,10 +113,10 @@ const Case = () => {
                 label="Failure Detection"
                 onBlur={handleBlur}
                 onChange={handleChange}
-                value={values.address1}
+                value={values.detection}
                 name="detection"
-                error={!!touched.address1 && !!errors.address1}
-                helperText={touched.address1 && errors.address1}
+                error={!!touched.detection && !!errors.detection}
+                helperText={touched.detection && errors.detection}
                 sx={{ gridColumn: "span 4" }}
               />
               <TextField
@@ -107,10 +126,10 @@ const Case = () => {
                 label="Failure Behavior"
                 onBlur={handleBlur}
                 onChange={handleChange}
-                value={values.address2}
+                value={values.behavior}
                 name="behavior"
-                error={!!touched.address2 && !!errors.address2}
-                helperText={touched.address2 && errors.address2}
+                error={!!touched.behavior && !!errors.behavior}
+                helperText={touched.behavior && errors.behavior}
                 sx={{ gridColumn: "span 4" }}
               />
 
@@ -122,7 +141,7 @@ const Case = () => {
                 label="Description"
                 onBlur={handleBlur}
                 onChange={handleChange}
-                value={values.address2}
+                value={values.description}
                 name="description"
                 rows={3}
                 sx={{ gridColumn: "span 4" }}
@@ -143,27 +162,5 @@ const Case = () => {
   );
 };
 
-const phoneRegExp =
-  /^((\+[1-9]{1,4}[ -]?)|(\([0-9]{2,3}\)[ -]?)|([0-9]{2,4})[ -]?)*?[0-9]{3,4}[ -]?[0-9]{3,4}$/;
-
-const checkoutSchema = yup.object().shape({
-  firstName: yup.string().required("required"),
-  lastName: yup.string().required("required"),
-  email: yup.string().email("invalid email").required("required"),
-  contact: yup
-    .string()
-    .matches(phoneRegExp, "Phone number is not valid")
-    .required("required"),
-  address1: yup.string().required("required"),
-  address2: yup.string().required("required"),
-});
-const initialValues = {
-  firstName: "",
-  lastName: "",
-  email: "",
-  contact: "",
-  address1: "",
-  address2: "",
-};
 
 export default Case;

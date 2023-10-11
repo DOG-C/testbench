@@ -2,12 +2,12 @@ const express = require('express');
 const router = express.Router();
 const { TestCampaigns } = require("../models");
 
-router.get("/campaignlist", async (req, res) => {
+router.get("/", async (req, res) => {
     const list = await TestCampaigns.findAll();
     res.json(list);
   });
   
-  router.post("/campaignlist", async (req, res) => {
+  router.post("/", async (req, res) => {
     const post = req.body;
     await TestCampaigns.create(post);
     res.json(post);

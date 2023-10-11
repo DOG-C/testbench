@@ -2,12 +2,12 @@ const express = require('express');
 const router = express.Router();
 const { TestCases } = require("../models");
 
-router.get("/caselist", async (req, res) => {
+router.get("/", async (req, res) => {
     const list = await TestCases.findAll();
     res.json(list);
   });
   
-  router.post("/caselist", async (req, res) => {
+  router.post("/", async (req, res) => {
     const post = req.body;
     await TestCases.create(post);
     res.json(post);
