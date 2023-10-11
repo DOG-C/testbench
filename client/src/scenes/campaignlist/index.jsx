@@ -66,7 +66,7 @@ const CampaignList = () => {
 
   return (
     <Box m="20px">
-      <Header title="Overview" />
+      <Header title="Test Campaigns" />
       <Box
         m="40px 0 0 0"
         height="75vh"

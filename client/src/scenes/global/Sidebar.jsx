@@ -8,13 +8,13 @@ import DashboardOutlinedIcon from "@mui/icons-material/DashboardOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import FormatListBulletedOutlinedIcon from "@mui/icons-material/FormatListBulletedOutlined";
 import PlayArrowOutlinedIcon from "@mui/icons-material/PlayArrowOutlined";
-import NoteAltOutlinedIcon from "@mui/icons-material/NoteAltOutlined";
+import WorkOutlineOutlinedIcon from '@mui/icons-material/WorkOutlineOutlined';
 import DnsOutlinedIcon from "@mui/icons-material/DnsOutlined";
-import AutoAwesomeMotionOutlinedIcon from "@mui/icons-material/AutoAwesomeMotionOutlined";
-import DifferenceOutlinedIcon from "@mui/icons-material/DifferenceOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import PestControlOutlinedIcon from "@mui/icons-material/PestControlOutlined";
 import SpeedOutlinedIcon from '@mui/icons-material/SpeedOutlined';
+import WeekendOutlinedIcon from '@mui/icons-material/WeekendOutlined';
+import EmojiEventsOutlinedIcon from '@mui/icons-material/EmojiEventsOutlined';
 // import MRVL from '../../assets/MRVL.png';
 // import MRVLD from '../../assets/MRVLD.png';
 
@@ -151,29 +151,29 @@ const Sidebar = () => {
                 color: colors.grey[100],
                 fontSize: 14,
               }}
-              selected={selected}
-              setSelected={setSelected}
             >
               <Item
-                title="Test Campaign"
-                to="/campaigns"
-                selected={selected}
-                setSelected={setSelected}
-                icon={<DifferenceOutlinedIcon />}
-              />
-              <Item
-                title="Test Suite"
-                to="/suites"
-                selected={selected}
-                setSelected={setSelected}
-                icon={<AutoAwesomeMotionOutlinedIcon />}
-              />
-              <Item
-                title="Test Case"
+                title="Cases List"
                 to="/cases"
                 selected={selected}
                 setSelected={setSelected}
-                icon={<NoteAltOutlinedIcon />}
+                icon={<WorkOutlineOutlinedIcon />}
+              />
+            
+              <Item
+                title="Suites List"
+                to="/suites"
+                selected={selected}
+                setSelected={setSelected}
+                icon={<WeekendOutlinedIcon />}
+              />
+
+              <Item
+                title="Campaigns List"
+                to="/campaigns"
+                selected={selected}
+                setSelected={setSelected}
+                icon={<EmojiEventsOutlinedIcon />}
               />
             </SubMenu>
 
@@ -192,29 +192,29 @@ const Sidebar = () => {
                 color: colors.grey[100],
                 fontSize: 14,
               }}
-              selected={selected}
-              setSelected={setSelected}
             >
-              <Item
-                title="Test Campaign"
-                to="/test_campaign"
-                selected={selected}
-                setSelected={setSelected}
-                icon={<DifferenceOutlinedIcon />}
-              />
-              <Item
-                title="Test Suite"
-                to="/test_suite"
-                selected={selected}
-                setSelected={setSelected}
-                icon={<AutoAwesomeMotionOutlinedIcon />}
-              />
               <Item
                 title="Test Case"
                 to="/test_case"
                 selected={selected}
                 setSelected={setSelected}
-                icon={<NoteAltOutlinedIcon />}
+                icon={<WorkOutlineOutlinedIcon />}
+              />
+
+              <Item
+                title="Test Suite"
+                to="/test_suite"
+                selected={selected}
+                setSelected={setSelected}
+                icon={<WeekendOutlinedIcon />}
+              />
+
+              <Item
+                title="Test Campaign"
+                to="/test_campaign"
+                selected={selected}
+                setSelected={setSelected}
+                icon={<EmojiEventsOutlinedIcon />}
               />
             </SubMenu>
 

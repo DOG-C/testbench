@@ -66,7 +66,7 @@ const SuiteList = () => {
 
   return (
     <Box m="20px">
-      <Header title="Overview" />
+      <Header title="Test Suites" />
       <Box
         m="40px 0 0 0"
         height="75vh"
