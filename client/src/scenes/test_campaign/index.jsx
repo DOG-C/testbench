@@ -1,4 +1,9 @@
-import { Box, Button, TextField } from "@mui/material";
+import {
+  Box,
+  Button,
+  TextField,
+  MenuItem,
+} from "@mui/material";
 import { Formik } from "formik";
 import * as yup from "yup";
 import useMediaQuery from "@mui/material/useMediaQuery";
@@ -39,11 +44,11 @@ const Campaign = () => {
                 fullWidth
                 variant="filled"
                 type="text"
-                label="First Name"
+                label="Test Campaign ID"
                 onBlur={handleBlur}
                 onChange={handleChange}
                 value={values.firstName}
-                name="firstName"
+                name="id"
                 error={!!touched.firstName && !!errors.firstName}
                 helperText={touched.firstName && errors.firstName}
                 sx={{ gridColumn: "span 2" }}
@@ -52,24 +57,38 @@ const Campaign = () => {
                 fullWidth
                 variant="filled"
                 type="text"
-                label="Last Name"
+                label="Test Campaign Name"
                 onBlur={handleBlur}
                 onChange={handleChange}
-                value={values.lastName}
-                name="lastName"
-                error={!!touched.lastName && !!errors.lastName}
-                helperText={touched.lastName && errors.lastName}
+                value={values.contact}
+                name="command"
+                error={!!touched.contact && !!errors.contact}
+                helperText={touched.contact && errors.contact}
                 sx={{ gridColumn: "span 2" }}
               />
+              <TextField
+                labelId="demo-simple-select-label"
+                select
+                id="demo-simple-select"
+                value={values.caseid}
+                label="Test Suite"
+                onChange={handleChange}
+                variant="filled"
+                sx={{ gridColumn: "span 4" }}
+              >
+                <MenuItem value={10}>Ten</MenuItem>
+                <MenuItem value={20}>Twenty</MenuItem>
+                <MenuItem value={30}>Thirty</MenuItem>
+              </TextField>
               <TextField
                 fullWidth
                 variant="filled"
                 type="text"
-                label="Email"
+                label="Test Campaign Log"
                 onBlur={handleBlur}
                 onChange={handleChange}
                 value={values.email}
-                name="email"
+                name="log"
                 error={!!touched.email && !!errors.email}
                 helperText={touched.email && errors.email}
                 sx={{ gridColumn: "span 4" }}
@@ -78,11 +97,11 @@ const Campaign = () => {
                 fullWidth
                 variant="filled"
                 type="text"
-                label="Contact Number"
+                label="Test Suite Command"
                 onBlur={handleBlur}
                 onChange={handleChange}
                 value={values.contact}
-                name="contact"
+                name="command"
                 error={!!touched.contact && !!errors.contact}
                 helperText={touched.contact && errors.contact}
                 sx={{ gridColumn: "span 4" }}
@@ -91,11 +110,11 @@ const Campaign = () => {
                 fullWidth
                 variant="filled"
                 type="text"
-                label="Address 1"
+                label="Failure Detection"
                 onBlur={handleBlur}
                 onChange={handleChange}
                 value={values.address1}
-                name="address1"
+                name="detection"
                 error={!!touched.address1 && !!errors.address1}
                 helperText={touched.address1 && errors.address1}
                 sx={{ gridColumn: "span 4" }}
@@ -104,19 +123,36 @@ const Campaign = () => {
                 fullWidth
                 variant="filled"
                 type="text"
-                label="Address 2"
+                label="Failure Behavior"
                 onBlur={handleBlur}
                 onChange={handleChange}
                 value={values.address2}
-                name="address2"
+                name="behavior"
                 error={!!touched.address2 && !!errors.address2}
                 helperText={touched.address2 && errors.address2}
                 sx={{ gridColumn: "span 4" }}
               />
+
+              <TextField
+                fullWidth
+                multiline
+                variant="filled"
+                type="text"
+                label="Description"
+                onBlur={handleBlur}
+                onChange={handleChange}
+                value={values.address2}
+                name="description"
+                rows={3}
+                sx={{ gridColumn: "span 4" }}
+              />
             </Box>
-            <Box display="flex" justifyContent="end" mt="20px">
-              <Button type="submit" color="secondary" variant="contained">
-                Create New User
+            <Box display="flex" justifyContent="flex-end" mt="20px" gap="10px">
+              <Button color="secondary" variant="contained" sx={{textTransform: "none"}}>
+                Cancel
+              </Button>
+              <Button type="submit" color="secondary" variant="contained" sx={{textTransform: "none"}}>
+                Create Test Campaign
               </Button>
             </Box>
           </form>

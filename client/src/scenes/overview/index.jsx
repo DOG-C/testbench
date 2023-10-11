@@ -1,3 +1,6 @@
+import React from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import LinearProgress, {
@@ -5,7 +8,7 @@ import LinearProgress, {
 } from "@mui/material/LinearProgress";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
-import { mockDataOverview } from "../../data/mockData";
+// import { mockDataOverview } from "../../data/mockData";
 import Header from "../../components/Header";
 import { useTheme } from "@mui/material";
 import FindInPageOutlinedIcon from "@mui/icons-material/FindInPageOutlined";
@@ -26,6 +29,14 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
 const Overview = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+
+  const [listOfResults, setListOfResults] = useState([]);
+
+  useEffect(() => {
+    axios.get("http://localhost:3001/results").then((response) => {
+      setListOfResults(response.data);
+    });
+  }, []);
 
   const columns = [
     {
@@ -148,7 +159,7 @@ const Overview = () => {
         }}
       >
         <DataGrid
-          rows={mockDataOverview}
+          rows={listOfResults}
           columns={columns}
           components={{ Toolbar: GridToolbar }}
         />

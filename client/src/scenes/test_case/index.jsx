@@ -116,6 +116,7 @@ const Case = () => {
 
               <TextField
                 fullWidth
+                multiline
                 variant="filled"
                 type="text"
                 label="Description"
@@ -123,16 +124,16 @@ const Case = () => {
                 onChange={handleChange}
                 value={values.address2}
                 name="description"
+                rows={3}
                 sx={{ gridColumn: "span 4" }}
               />
             </Box>
-            <Box display="flex" justifyContent="left" mt="20px" sx={{ flexDirection: 'row' }}>
-              <Button color="secondary" variant="contained">
+            <Box display="flex" justifyContent="flex-end" mt="20px" sx={{ flexDirection: 'row' }} gap="10px">
+              <Button color="secondary" variant="contained" sx={{textTransform: "none"}}>
                 Cancel
               </Button>
-              <br />
-              <Button type="submit" color="secondary" variant="contained">
-                Create New Test Case
+              <Button type="submit" color="secondary" variant="contained" sx={{textTransform: "none"}}>
+                Create Test Case
               </Button>
             </Box>
           </form>
