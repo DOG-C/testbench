@@ -3,8 +3,8 @@ const router = express.Router();
 const { Results } = require("../models");
 
 router.get("/", async (req, res) => {
-    const listOfPosts = await Results.findAll();
-    res.json(listOfPosts);
+    const list = await Results.findAll();
+    res.json(list);
   });
   
   router.post("/", async (req, res) => {

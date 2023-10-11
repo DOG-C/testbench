@@ -14,6 +14,7 @@ import AutoAwesomeMotionOutlinedIcon from "@mui/icons-material/AutoAwesomeMotion
 import DifferenceOutlinedIcon from "@mui/icons-material/DifferenceOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import PestControlOutlinedIcon from "@mui/icons-material/PestControlOutlined";
+import SpeedOutlinedIcon from '@mui/icons-material/SpeedOutlined';
 // import MRVL from '../../assets/MRVL.png';
 // import MRVLD from '../../assets/MRVLD.png';
 
@@ -142,6 +143,39 @@ const Sidebar = () => {
             >
               Config
             </Typography>
+
+            <SubMenu
+              title="Tests"
+              icon={<SpeedOutlinedIcon />}
+              style={{
+                color: colors.grey[100],
+                fontSize: 14,
+              }}
+              selected={selected}
+              setSelected={setSelected}
+            >
+              <Item
+                title="Test Campaign"
+                to="/campaignlist"
+                selected={selected}
+                setSelected={setSelected}
+                icon={<DifferenceOutlinedIcon />}
+              />
+              <Item
+                title="Test Suite"
+                to="/suitelist"
+                selected={selected}
+                setSelected={setSelected}
+                icon={<AutoAwesomeMotionOutlinedIcon />}
+              />
+              <Item
+                title="Test Case"
+                to="/caselist"
+                selected={selected}
+                setSelected={setSelected}
+                icon={<NoteAltOutlinedIcon />}
+              />
+            </SubMenu>
 
             <Item
               title="Platforms"

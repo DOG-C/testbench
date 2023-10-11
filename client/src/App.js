@@ -9,6 +9,9 @@ import Case from "./scenes/test_case";
 import Campaign from "./scenes/test_campaign";
 import Suite from "./scenes/test_suite";
 import Geography from "./scenes/geography";
+import CampaignList from "./scenes/campaignlist";
+import CaseList from "./scenes/caselist";
+import SuiteList from "./scenes/suitelist";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
 
@@ -27,6 +30,9 @@ function App() {
             <Routes>
               <Route path="/" element={<Overview />} />
               <Route path="/script" element={<Script />} />
+              <Route path="/caselist" element={<CaseList />} />
+              <Route path="/suitelist" element={<SuiteList />} />
+              <Route path="/campaignlist" element={<CampaignList />} />
               <Route path="/reports" element={<Reports />} />
               <Route path="/test_case" element={<Case />} />
               <Route path="/test_campaign" element={<Campaign />} />

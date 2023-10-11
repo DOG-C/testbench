@@ -2,108 +2,50 @@ import React from "react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Box } from "@mui/material";
-import { styled } from "@mui/material/styles";
-import LinearProgress, {
-  linearProgressClasses,
-} from "@mui/material/LinearProgress";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
 import Header from "../../components/Header";
 import { useTheme } from "@mui/material";
 import FindInPageOutlinedIcon from "@mui/icons-material/FindInPageOutlined";
 
-const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
-  height: 10,
-  borderRadius: 5,
-  [`&.${linearProgressClasses.colorPrimary}`]: {
-    backgroundColor:
-      theme.palette.grey[theme.palette.mode === "light" ? 300 : 800],
-  },
-  [`& .${linearProgressClasses.bar}`]: {
-    borderRadius: 5,
-    backgroundColor: theme.palette.mode === "light" ? "#1a90ff" : "#308fe8",
-  },
-}));
 
-const Overview = () => {
+const CaseList = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
   const [listOfResults, setListOfResults] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:3001/results").then((response) => {
+    axios.get("http://localhost:3001/caselist").then((response) => {
       setListOfResults(response.data);
     });
   }, []);
 
   const columns = [
     {
-      field: "testbench",
-      headerName: "Testbench",
+      field: "name",
+      headerName: "Case Name",
       flex: 0.5,
       headerAlign: "center",
       align: "center",
     },
     {
-      field: "type",
-      headerName: "Type",
+      field: "caseid",
+      headerName: "Case Id",
       headerAlign: "center",
       align: "center",
     },
     {
-      field: "chiptype",
-      headerName: "Chiptype",
+      field: "log",
+      headerName: "Log",
       flex: 1,
       cellClassName: "name-column--cell",
       headerAlign: "center",
       align: "center",
     },
     {
-      field: "variant",
-      headerName: "Variant",
-      flex: 0.5,
-      headerAlign: "center",
-      align: "center",
-    },
-    {
-      field: "version",
-      headerName: "Version",
-      flex: 0.5,
-      headerAlign: "center",
-      align: "center",
-    },
-    {
-      field: "build",
-      headerName: "Build",
-      flex: 0.7,
-      headerAlign: "center",
-      align: "center",
-    },
-    {
-      field: "results",
-      headerName: "Results",
-      flex: 0.8,
-      headerAlign: "center",
-      align: "center",
-      renderCell: () => {
-        return (
-          <Box sx={{ flexGrow: 1 }}>
-            <BorderLinearProgress variant="determinate" value={50} />
-          </Box>
-        );
-      },
-    },
-    {
-      field: "date",
-      headerName: "Date",
-      flex: 1,
-      headerAlign: "center",
-      align: "center",
-    },
-    {
-      field: "report",
-      headerName: "Report",
+      field: "manage",
+      headerName: "Manage",
       sortable: false,
       disableClickEventBubbling: true,
       flex: 0.4,
@@ -167,4 +109,4 @@ const Overview = () => {
   );
 };
 
-export default Overview;
+export default CaseList;
