@@ -7,9 +7,9 @@ router.get("/suitelist", async (req, res) => {
     res.json(list);
   });
   
-  router.post("/suitlist", async (req, res) => {
+  router.post("/suitelist", async (req, res) => {
     const post = req.body;
-    await Results.create(post);
+    await TestSuites.create(post);
     res.json(post);
   });
 

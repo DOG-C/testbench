@@ -156,21 +156,21 @@ const Sidebar = () => {
             >
               <Item
                 title="Test Campaign"
-                to="/campaignlist"
+                to="/campaigns"
                 selected={selected}
                 setSelected={setSelected}
                 icon={<DifferenceOutlinedIcon />}
               />
               <Item
                 title="Test Suite"
-                to="/suitelist"
+                to="/suites"
                 selected={selected}
                 setSelected={setSelected}
                 icon={<AutoAwesomeMotionOutlinedIcon />}
               />
               <Item
                 title="Test Case"
-                to="/caselist"
+                to="/cases"
                 selected={selected}
                 setSelected={setSelected}
                 icon={<NoteAltOutlinedIcon />}

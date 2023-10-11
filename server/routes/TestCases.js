@@ -9,7 +9,7 @@ router.get("/caselist", async (req, res) => {
   
   router.post("/caselist", async (req, res) => {
     const post = req.body;
-    await Results.create(post);
+    await TestCases.create(post);
     res.json(post);
   });
 

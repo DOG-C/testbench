@@ -30,9 +30,9 @@ function App() {
             <Routes>
               <Route path="/" element={<Overview />} />
               <Route path="/script" element={<Script />} />
-              <Route path="/caselist" element={<CaseList />} />
-              <Route path="/suitelist" element={<SuiteList />} />
-              <Route path="/campaignlist" element={<CampaignList />} />
+              <Route path="/cases" element={<CaseList />} />
+              <Route path="/suites" element={<SuiteList />} />
+              <Route path="/campaigns" element={<CampaignList />} />
               <Route path="/reports" element={<Reports />} />
               <Route path="/test_case" element={<Case />} />
               <Route path="/test_campaign" element={<Campaign />} />

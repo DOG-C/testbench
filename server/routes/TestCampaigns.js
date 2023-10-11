@@ -9,7 +9,7 @@ router.get("/campaignlist", async (req, res) => {
   
   router.post("/campaignlist", async (req, res) => {
     const post = req.body;
-    await Results.create(post);
+    await TestCampaigns.create(post);
     res.json(post);
   });
 
